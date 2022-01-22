@@ -2,7 +2,6 @@ pull_request_rules:
   - name: Automatic merge
     conditions:
       - base=main
-      - "#files>0"
     actions:
       merge:
         method: merge
