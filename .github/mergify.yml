@@ -2,7 +2,6 @@ pull_request_rules:
   - name: Automatic merge
     conditions:
       - base=main
-      - "label=automerge"
     actions:
       merge:
         method: merge
