@@ -74,6 +74,8 @@ setup_dotfiles() {
   for f in "${DOTFILES[@]}"; do
     ln -sf "$HOME/dotfiles/target/$f" "$HOME/$f"
   done
+
+  rm -rf ./tmp
 }
 
 main
