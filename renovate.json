@@ -1,5 +1,6 @@
 {
   "automerge": true,
+  "automergeType": "branch",
   "ignoreTests": false,
   "extends": [
     "config:base",
