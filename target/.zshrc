@@ -99,6 +99,14 @@ if [[ $(command -v git) ]]; then
   alias gbm-all='git branch --merged|egrep -v "\*|develop|main"|xargs git branch' # -d で削除, -D で完全削除
 fi
 
+# shellcheck
+if [[ $(command -v shellcheck) ]]; then
+  alias sc='shellcheck'
+  function schelp() {
+    curl -s https://raw.githubusercontent.com/wiki/koalaman/shellcheck/"$1".md
+  }
+fi
+
 alias help-me='echo "
 ctrl+a\t\t:行頭に移動
 ctrl+e\t\t:行末に移動
