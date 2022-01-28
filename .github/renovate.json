@@ -3,9 +3,9 @@
   "ignoreTests": false,
   "extends": [
     "config:base",
-    ":timezone(Asia/Tokyo)",
     ":skipStatusCheck"
   ],
+  "timezone": "Asia/Tokyo",
   "labels": [
     "renovate"
   ],
