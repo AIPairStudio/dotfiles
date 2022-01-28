@@ -12,9 +12,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+        name: set PYTHON_VERSION
+        run: echo "PYTHON_VERSION=$(grep python .tool-versions | cut -d ' ' -f1)" >> $GITHUB_ENV
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.10.2" # see: https://github.com/actions/python-versions/releases
+          python-version: ${{ env.PYTHON_VERSION }} # see: https://github.com/actions/python-versions/releases
       - uses: pre-commit/action@v2.0.3
         with:
           extra_args: -a --show-diff-on-failure
