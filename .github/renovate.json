@@ -1,4 +1,6 @@
 {
+  "automerge": true,
+  "ignoreTests": false,
   "extends": [
     "config:base",
     ":timezone(Asia/Tokyo)",
@@ -9,7 +11,5 @@
   ],
   "pre-commit": {
     "enabled": true
-  },
-  "ignoreTests": false,
-  "automerge": true
+  }
 }
