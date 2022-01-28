@@ -1,4 +1,4 @@
-files: '^setup.sh$'
+files: '^(setup|test-github-actions).sh$'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
