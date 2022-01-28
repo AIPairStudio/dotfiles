@@ -1,0 +1,16 @@
+{
+  "automerge": true,
+  "automergeType": "branch",
+  "ignoreTests": false,
+  "extends": [
+    "config:base",
+    ":skipStatusCheck"
+  ],
+  "timezone": "Asia/Tokyo",
+  "labels": [
+    "renovate"
+  ],
+  "pre-commit": {
+    "enabled": true
+  }
+}
