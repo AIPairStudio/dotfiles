@@ -1,10 +1,8 @@
 {
   "automerge": true,
   "automergeType": "branch",
-  "ignoreTests": false,
   "extends": [
-    "config:base",
-    ":skipStatusCheck"
+    "config:base"
   ],
   "timezone": "Asia/Tokyo",
   "labels": [
