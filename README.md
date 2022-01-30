@@ -8,10 +8,10 @@ cd ./dotfiles
 bash ./setup.sh
 ```
 
-## asdf
+## Python
 
 ```bash
-asdf install python 3.8.10
+asdf install python
 ```
 
 ## pre-commit
