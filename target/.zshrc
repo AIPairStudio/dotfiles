@@ -34,7 +34,7 @@ zinit light zdharma-continuum/history-search-multi-word
 zinit load zdharma-continuum/history-search-multi-word
 
 # brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)".
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # asdf
 . /home/linuxbrew/.linuxbrew/opt/asdf/asdf.sh
