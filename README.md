@@ -20,3 +20,9 @@ asdf install python 3.8.10
 asdf install pre-commit 2.7.0
 pre-commit install --install-hooks
 ```
+
+## yamllint
+
+```bash
+brew install yamllint
+```

@@ -1,4 +1,5 @@
-files: '^setup.sh$'
+---
+# see https://pre-commit.com
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -10,3 +11,8 @@ repos:
     rev: v0.8.0
     hooks:
       - id: shellcheck
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
