@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
-        name: set PYTHON_VERSION
+      - name: set PYTHON_VERSION
         run: -|
           echo "PYTHON_VERSION=$(grep python .tool-versions \
           cut -d ' ' -f1)" >> $GITHUB_ENV
