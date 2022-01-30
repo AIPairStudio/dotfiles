@@ -8,7 +8,7 @@ cd ./dotfiles
 bash ./setup.sh
 ```
 
-## asdf
+## Python
 
 ```bash
 asdf install python
