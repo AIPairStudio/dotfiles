@@ -13,8 +13,7 @@ fi
 # shellcheck source=/dev/null
 . "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps} ))
-# _comps[zinit]=_zinit
+(( ${+_comps} )) && _comps[$(zinit)]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
