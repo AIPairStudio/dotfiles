@@ -15,5 +15,6 @@ brew "asdf"
 brew "exa"
 brew "starship"
 brew "yamllint"
+brew "gdrive"
 
 brew cask "postman"
