@@ -1,34 +1,36 @@
 [global_config]
   window_state = maximise
-  scroll_tabbar = True
-  enabled_plugins = InactivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  suppress_multiple_term_dialog = True
   title_use_system_font = False
-  title_font = Ricty 12
+  title_font = HackGenNerd Console 12
 [keybindings]
-  hide_window = <Super>Down
 [profiles]
   [[default]]
-    allow_bold = False
-    background_color = "#001317"
-    background_darkness = 0.91
-    background_type = transparent
-    cursor_shape = ibeam
-    cursor_color = "#b3cacc"
-    font = Cascadia Code PL 11
-    foreground_color = "#c7d5d6"
-    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#8b9fba:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#a9fb5a:#fce94f:#729fcf:#e7b3e1:#34e2e2:#eeeeec"
+    cursor_color = "#aaaaaa"
+    font = HackGenNerd Console 13
     use_system_font = False
-    copy_on_selection = True
+  [[Takeru O'oyama]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = HackGenNerd Console 12
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child0]]]
-      fullscreen = False
-      last_active_window = True
-      maximised = True
-      order = 0
-      parent = ""
-      position = 0:0
-      size = 1920, 1053
       type = Window
+      parent = ""
+      order = 0
+      position = 1623:882
+      maximised = False
+      fullscreen = False
+      size = 574, 354
+      title = /usr/bin/zsh
+      last_active_term = 93f7e4be-8e68-4c57-b6cd-b2e9eda45d77
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 93f7e4be-8e68-4c57-b6cd-b2e9eda45d77
 [plugins]
