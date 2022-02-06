@@ -6,14 +6,8 @@ REPOSITORY=https://github.com/tqer39/dotfiles
 
 main() {
   detect_os
-  if [ "$PLATFORM" == 'linux' ] && [ "$PLATFORM" == 'mac' ]; then
-    detect_distribution
-  fi
-
-  if [ "$PLATFORM" == 'linux' ]; then
-    install_linux
-  elif [ "$PLATFORM" == 'mac' ]; then
-    install_mac
+  if [ "$PLATFORM" == 'linux' ] || [ "$PLATFORM" == 'mac' ]; then
+    setup_dotfiles
   else
     abort 'このOSは対応していません'
   fi
@@ -39,14 +33,6 @@ detect_os() {
   fi
 }
 
-install_linux() {
-  setup_dotfiles
-}
-
-install_mac() {
-  setup_dotfiles
-}
-
 is_exists() {
   which "$1" >/dev/null 2>&1
   return $?
@@ -67,12 +53,23 @@ setup_dotfiles() {
   fi
 
   mkdir -p ./tmp
-  find ./target -type f -name '.*' > ./tmp/dotfiles.txt
-  sed -i.org "s/\.\/target\///g" ./tmp/dotfiles.txt
+
+  # common
+  find ./common -type f -name '.*' > ./tmp/dotfiles.txt
+  sed -i.org "s/\.\/common\///g" ./tmp/dotfiles.txt
   mapfile -t DOTFILES < ./tmp/dotfiles.txt
 
   for f in "${DOTFILES[@]}"; do
-    ln -sf "$HOME/dotfiles/target/$f" "$HOME/$f"
+    ln -sf "$HOME/dotfiles/common/$f" "$HOME/$f"
+  done
+
+  # platform
+  find "./$PLATFORM" -type f -name '.*' > "./tmp/dotfiles-$PLATFORM.txt"
+  sed -i.org "s/\.\/$PLATFORM\///g" "./tmp/dotfiles-$PLATFORM.txt"
+  mapfile -t DOTFILES < "./tmp/dotfiles-$PLATFORM.txt"
+
+  for f in "${DOTFILES[@]}"; do
+    ln -sf "$HOME/dotfiles/$PLATFORM/$f" "$HOME/$f"
   done
 
   rm -rf ./tmp
