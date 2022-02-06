@@ -67,12 +67,12 @@ setup_dotfiles() {
   fi
 
   mkdir -p ./tmp
-  find ./target -type f -name '.*' > ./tmp/dotfiles.txt
-  sed -i.org "s/\.\/target\///g" ./tmp/dotfiles.txt
+  find ./common -type f -name '.*' > ./tmp/dotfiles.txt
+  sed -i.org "s/\.\/common\///g" ./tmp/dotfiles.txt
   mapfile -t DOTFILES < ./tmp/dotfiles.txt
 
   for f in "${DOTFILES[@]}"; do
-    ln -sf "$HOME/dotfiles/target/$f" "$HOME/$f"
+    ln -sf "$HOME/dotfiles/common/$f" "$HOME/$f"
   done
 
   rm -rf ./tmp
