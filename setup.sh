@@ -52,10 +52,11 @@ setup_dotfiles() {
     fi
   fi
 
+  mkdir -p "$HOME/.config/terminator"
   mkdir -p ./tmp
 
   # common
-  find ./common -type f -name '.*' > ./tmp/dotfiles.txt
+  find ./common -type f > ./tmp/dotfiles.txt
   sed -i.org "s/\.\/common\///g" ./tmp/dotfiles.txt
   mapfile -t DOTFILES < ./tmp/dotfiles.txt
 
