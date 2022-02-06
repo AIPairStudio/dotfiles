@@ -9,12 +9,14 @@
 #    brew bundle cleanup
 
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "asdf"
 brew "exa"
 brew "starship"
 brew "yamllint"
-brew "gdrive"
 
 brew cask "postman"
+
+cask "visual-studio-code"
