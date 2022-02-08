@@ -17,6 +17,5 @@ brew "exa"
 brew "starship"
 brew "yamllint"
 
-brew cask "postman"
-
+cask "postman"
 cask "visual-studio-code"
