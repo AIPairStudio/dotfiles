@@ -19,3 +19,4 @@ brew "yamllint"
 
 cask "postman"
 cask "visual-studio-code"
+cask "slack"
