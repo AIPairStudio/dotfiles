@@ -18,6 +18,7 @@ brew "starship"
 brew "yamllint"
 brew "sqlite"
 brew "bash-completion@2"
+brew "terraformer"
 
 cask "postman"
 cask "visual-studio-code"
