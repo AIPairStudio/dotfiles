@@ -17,7 +17,7 @@ brew "exa"
 brew "starship"
 brew "yamllint"
 brew "sqlite"
-brew "bash-completion"
+brew "bash-completion@2"
 
 cask "postman"
 cask "visual-studio-code"
