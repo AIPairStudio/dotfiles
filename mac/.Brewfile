@@ -23,6 +23,7 @@ brew "aws-vault"
 brew "mysql-client"
 brew "gdrive"
 brew "brew-cask-completion"
+brew "git"
 
 cask "postman"
 cask "visual-studio-code"
