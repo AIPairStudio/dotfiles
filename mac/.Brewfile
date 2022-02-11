@@ -26,6 +26,7 @@ brew "mysql-client"
 brew "gdrive"
 brew "brew-cask-completion"
 brew "git"
+brew "newman"
 
 cask "postman"
 cask "visual-studio-code"
