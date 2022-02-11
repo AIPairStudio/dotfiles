@@ -151,3 +151,12 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
 export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/mysql-client/lib"
 export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/mysql-client/include"
 export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/lib/pkgconfig"
+
+# ------------------------------------------------------------------------------
+# pre-commit
+# ------------------------------------------------------------------------------
+if [[ $(command -v pre-commit) ]]; then
+  alias prv="pre-commit -V"
+  alias pri="pre-commit install --install-hooks"
+  alias pra="pre-commit run -a"
+fi
