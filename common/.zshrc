@@ -126,3 +126,11 @@ ctrl+insert\t:コピー
 shift+insert\t:貼り付け
 ctrl+d\t\t:ターミナルを強制終了
 "'
+
+# ------------------------------------------------------------------------------
+# mysql-client
+# ------------------------------------------------------------------------------
+export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
+export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/mysql-client/lib"
+export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/mysql-client/include"
+export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/lib/pkgconfig"

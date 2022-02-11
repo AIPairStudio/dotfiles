@@ -20,6 +20,7 @@ brew "sqlite"
 brew "bash-completion@2"
 brew "terraformer"
 brew "aws-vault"
+brew "mysql-client"
 
 cask "postman"
 cask "visual-studio-code"
