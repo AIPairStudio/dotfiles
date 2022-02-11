@@ -21,6 +21,7 @@ brew "bash-completion@2"
 brew "terraformer"
 brew "aws-vault"
 brew "mysql-client"
+brew "gdrive"
 
 cask "postman"
 cask "visual-studio-code"
