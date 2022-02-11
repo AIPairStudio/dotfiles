@@ -1,6 +1,9 @@
 #!/bin/bash
 
-### Added by Zinit's installer
+# ------------------------------------------------------------------------------
+# zinit
+# ------------------------------------------------------------------------------
+# Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
   print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
   command mkdir -p "$HOME/.local/share/zinit"
@@ -13,8 +16,7 @@ fi
 # shellcheck source=/dev/null
 . "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps} ))
-# _comps[zinit]=_zinit
+(( ${+_comps} )) && _comps["$(zinit)"]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -38,10 +40,14 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zdharma-continuum/history-search-multi-word
 zinit load zdharma-continuum/history-search-multi-word
 
+# ------------------------------------------------------------------------------
 # brew
+# ------------------------------------------------------------------------------
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# ------------------------------------------------------------------------------
 # asdf
+# ------------------------------------------------------------------------------
 # shellcheck source=/dev/null
 . /home/linuxbrew/.linuxbrew/opt/asdf/asdf.sh
 
@@ -52,10 +58,14 @@ then
   compinit
 fi
 
+# ------------------------------------------------------------------------------
 # Starship
+# ------------------------------------------------------------------------------
 eval "$(starship init zsh)"
 
+# ------------------------------------------------------------------------------
 # shortcut
+# ------------------------------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -64,7 +74,9 @@ alias dl='cd ~/Downloads'
 alias d='cd ~/Desktop'
 alias work='cd ~/workspace'
 
+# ------------------------------------------------------------------------------
 # exa
+# ------------------------------------------------------------------------------
 if [[ $(command -v exa) ]]; then
   alias e='exa --icons --git'
   alias l=e
@@ -80,7 +92,9 @@ if [[ $(command -v exa) ]]; then
   alias l='clear && ls'
 fi
 
+# ------------------------------------------------------------------------------
 # git
+# ------------------------------------------------------------------------------
 if [[ $(command -v git) ]]; then
   alias g='git'
   alias gb='git branch'
@@ -105,6 +119,9 @@ if [[ $(command -v git) ]]; then
   alias gbm-all='git branch --merged|egrep -v "\*|develop|main"|xargs git branch' # -d で削除, -D で完全削除
 fi
 
+# ------------------------------------------------------------------------------
+# \shellcheck
+# ------------------------------------------------------------------------------
 if [[ $(command -v shellcheck) ]]; then
   alias sc='shellcheck'
   function schelp() {
