@@ -19,6 +19,7 @@ brew "yamllint"
 brew "sqlite"
 brew "bash-completion@2"
 brew "terraformer"
+brew "awscli"
 
 cask "postman"
 cask "visual-studio-code"
