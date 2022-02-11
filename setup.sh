@@ -61,7 +61,7 @@ setup_dotfiles() {
   mapfile -t DOTFILES < ./tmp/dotfiles.txt
 
   for f in "${DOTFILES[@]}"; do
-    ln -sf "$HOME/dotfiles/common/$f" "$HOME/$f"
+    ln -sf "$PWD/common/$f" "$HOME/$f"
   done
 
   # platform
