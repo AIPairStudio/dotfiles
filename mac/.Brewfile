@@ -22,6 +22,7 @@ brew "terraformer"
 brew "aws-vault"
 brew "mysql-client"
 brew "gdrive"
+brew "brew-cask-completion"
 
 cask "postman"
 cask "visual-studio-code"
