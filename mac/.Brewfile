@@ -16,6 +16,8 @@ brew "asdf"
 brew "exa"
 brew "starship"
 brew "yamllint"
+brew "sqlite"
+brew "bash-completion"
 
 cask "postman"
 cask "visual-studio-code"
