@@ -27,6 +27,7 @@ brew "gdrive"
 brew "brew-cask-completion"
 brew "git"
 brew "newman"
+brew "openjdk@11"
 
 cask "postman"
 cask "visual-studio-code"
