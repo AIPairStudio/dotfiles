@@ -28,6 +28,7 @@ brew "brew-cask-completion"
 brew "git"
 brew "newman"
 brew "openjdk@11"
+brew "gh"
 
 cask "postman"
 cask "visual-studio-code"
