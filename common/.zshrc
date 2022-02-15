@@ -160,3 +160,8 @@ if [[ $(command -v pre-commit) ]]; then
   alias pri="pre-commit install --install-hooks"
   alias pra="pre-commit run -a"
 fi
+
+# ------------------------------------------------------------------------------
+# openjdk
+# ------------------------------------------------------------------------------
+export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk@11/bin:$PATH"
