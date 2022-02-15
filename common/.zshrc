@@ -114,6 +114,7 @@ if [[ $(command -v git) ]]; then
   alias gstt='git status'
   alias gsts='git stash'
   alias gsw='git switch'
+  alias gswc='git switch -c'
   alias gl='git log --oneline'
   alias gbm='git branch --merged'
   alias gbm-all='git branch --merged|egrep -v "\*|develop|main"|xargs git branch' # -d で削除, -D で完全削除
