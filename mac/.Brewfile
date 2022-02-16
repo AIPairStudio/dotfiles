@@ -29,6 +29,7 @@ brew "git"
 brew "newman"
 brew "openjdk@11"
 brew "gh"
+brew "aws-elasticbeanstalk"
 
 cask "postman"
 cask "visual-studio-code"
