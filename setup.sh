@@ -56,6 +56,8 @@ setup_dotfiles() {
   mkdir -p "$HOME/.config/fish"
   mkdir -p ./tmp
 
+  cd "$HOME/dotfiles"
+
   # common
   find ./common -type f > ./tmp/dotfiles.txt
   sed -i.org "s/\.\/common\///g" ./tmp/dotfiles.txt
