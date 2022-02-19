@@ -47,6 +47,8 @@ end
 if test (command -v git)
   alias g='git'
   alias gb='git branch'
+  alias gb-this='git rev-parse --abbrev-ref HEAD'
+  alias gba='git branch -a'
   alias ga='git add'
   alias gc='git commit -am'
   alias gca='git commit --amend'
@@ -60,6 +62,7 @@ if test (command -v git)
   alias gpl='git pull'
   alias gps='git push'
   alias gpso='git push origin'
+  alias gpso-this='git push origin (git rev-parse --abbrev-ref HEAD)'
   alias gstt='git status'
   alias gsts='git stash'
   alias gsw='git switch'
