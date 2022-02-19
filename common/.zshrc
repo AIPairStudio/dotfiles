@@ -36,32 +36,29 @@ zinit light zsh-users/zsh-autosuggestions
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
 
-# Control + R でコマンドの履歴をリスト表示
-# zinit light zdharma-continuum/history-search-multi-word
-# zinit load zdharma-continuum/history-search-multi-word
+# 履歴ファイルの保存先
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt extended_history
 
 # ------------------------------------------------------------------------------
 # brew
 # ------------------------------------------------------------------------------
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ $(command -v brew) ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # ------------------------------------------------------------------------------
 # asdf
 # ------------------------------------------------------------------------------
-# shellcheck source=/dev/null
-. /home/linuxbrew/.linuxbrew/opt/asdf/asdf.sh
+if [[ $(command -v brew) ]]; then
+  # see https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
+  # ZSH & Homebrew
 
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
+  # shellcheck source=/dev/null
+  . "$(brew --prefix asdf)/libexec/asdf.sh"
 fi
-
-# ------------------------------------------------------------------------------
-# Starship
-# ------------------------------------------------------------------------------
-eval "$(starship init zsh)"
 
 # ------------------------------------------------------------------------------
 # shortcut
@@ -164,17 +161,14 @@ ctrl+d\t\t:ターミナルを強制終了
 # mysql-client
 # ------------------------------------------------------------------------------
 export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/mysql-client/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/mysql-client/include"
-export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/lib/pkgconfig"
 
 # ------------------------------------------------------------------------------
 # pre-commit
 # ------------------------------------------------------------------------------
 if [[ $(command -v pre-commit) ]]; then
-  alias prv="pre-commit -V"
-  alias pri="pre-commit install --install-hooks"
-  alias pra="pre-commit run -a"
+  alias pcv="pre-commit -V"
+  alias pci="pre-commit install --install-hooks"
+  alias pcra="pre-commit run -a"
 fi
 
 # ------------------------------------------------------------------------------
@@ -194,3 +188,10 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk@11/bin:$PATH"
 if [[ $(command -v bat) ]]; then
   alias cat="bat"
 fi
+
+# ------------------------------------------------------------------------------
+# Starship
+# ------------------------------------------------------------------------------
+# see https://starship.rs/ja-jp/guide/
+# ※ 一番最後の行に設定が必要
+eval "$(starship init zsh)"
