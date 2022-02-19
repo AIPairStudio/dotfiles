@@ -3,10 +3,13 @@
 #    bash ./setup.sh
 #
 #  - Install
-#    brew bundle cleanup
+#    brew install -f "$HOME/.Brewfile"
 #
 #  - Cleanup
 #    brew bundle cleanup
+#
+#  - Backup
+#    brew bundle dump
 
 tap "homebrew/bundle"
 tap "homebrew/core"

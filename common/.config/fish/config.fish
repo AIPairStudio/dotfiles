@@ -5,12 +5,12 @@ end
 # ------------------------------------------------------------------------------
 # asdf
 # ------------------------------------------------------------------------------
-. /home/linuxbrew/.linuxbrew/opt/asdf/asdf.fish
+if test (command -v brew)
+  # see https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
+  # Fish & Homebrew
 
-# ------------------------------------------------------------------------------
-# Starship
-# ------------------------------------------------------------------------------
-# starship init fish | source
+  . ""(brew --prefix asdf)"/libexec/asdf.fish"
+end
 
 # ------------------------------------------------------------------------------
 # shortcut
@@ -101,9 +101,9 @@ end
 # pre-commit
 # ------------------------------------------------------------------------------
 if test (command -v pre-commit)
-  alias prv="pre-commit -V"
-  alias pri="pre-commit install --install-hooks"
-  alias pra="pre-commit run -a"
+  alias pcv="pre-commit -V"
+  alias pci="pre-commit install --install-hooks"
+  alias pcra="pre-commit run -a"
 end
 
 # ------------------------------------------------------------------------------
@@ -112,3 +112,10 @@ end
 if test (command -v bat)
   alias cat="bat"
 end
+
+# ------------------------------------------------------------------------------
+# Starship
+# ------------------------------------------------------------------------------
+# see https://starship.rs/ja-jp/guide/
+# ※ 一番最後の行に設定が必要
+starship init fish | source
