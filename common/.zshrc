@@ -37,8 +37,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Control + R でコマンドの履歴をリスト表示
-zinit light zdharma-continuum/history-search-multi-word
-zinit load zdharma-continuum/history-search-multi-word
+# zinit light zdharma-continuum/history-search-multi-word
+# zinit load zdharma-continuum/history-search-multi-word
 
 # ------------------------------------------------------------------------------
 # brew
@@ -181,3 +181,9 @@ fi
 # openjdk
 # ------------------------------------------------------------------------------
 export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk@11/bin:$PATH"
+
+# ------------------------------------------------------------------------------
+# fzf
+# ------------------------------------------------------------------------------
+# shellcheck source=/dev/null
+[ -f ~/.fzf.zsh ] && . "$HOME/.fzf.zsh"
