@@ -53,6 +53,7 @@ setup_dotfiles() {
   fi
 
   mkdir -p "$HOME/.config/terminator"
+  mkdir -p "$HOME/.config/fish"
   mkdir -p ./tmp
 
   # common
