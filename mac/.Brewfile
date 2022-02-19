@@ -37,6 +37,7 @@ brew "fish"
 brew "fzf"
 brew "z"
 brew "bat"
+brew "fd"
 
 cask "postman"
 cask "visual-studio-code"
