@@ -33,6 +33,7 @@ brew "aws-elasticbeanstalk"
 brew "fish"
 brew "fzf"
 brew "z"
+brew "bat"
 
 cask "postman"
 cask "visual-studio-code"

@@ -105,3 +105,10 @@ if test (command -v pre-commit)
   alias pri="pre-commit install --install-hooks"
   alias pra="pre-commit run -a"
 end
+
+# ------------------------------------------------------------------------------
+# bat
+# ------------------------------------------------------------------------------
+if test (command -v bat)
+  alias cat="bat"
+end
