@@ -30,8 +30,8 @@ zinit light-mode for \
 
 # zinit: plugins
 # 入力補完
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-autosuggestions
 
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -155,7 +155,8 @@ ctrl+d\t\t:ターミナルを強制終了
 # ------------------------------------------------------------------------------
 if [[ $(command -v brew) ]]; then
   if [ "$(brew list | grep -c "^mysql-client@*.*$")" -gt 0 ]; then
-    export PATH="$(brew --prefix mysql-client)/bin:$PATH"
+    PATH="$(brew --prefix mysql-client)/bin:$PATH"
+    export PATH
   fi
 fi
 
@@ -173,7 +174,8 @@ fi
 # ------------------------------------------------------------------------------
 if [[ $(command -v brew) ]]; then
   if [ "$(brew list | grep -c "^openjdk@*.*$")" -gt 0 ]; then
-    export PATH="$(brew --prefix openjdk@11)/bin:$PATH"
+    PATH="$(brew --prefix openjdk@11)/bin:$PATH"
+    export PATH
   fi
 fi
 
