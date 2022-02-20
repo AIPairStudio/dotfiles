@@ -30,8 +30,8 @@ zinit light-mode for \
 
 # zinit: plugins
 # 入力補完
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-autosuggestions
 
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -41,13 +41,6 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=100000
 export SAVEHIST=100000
 setopt extended_history
-
-# ------------------------------------------------------------------------------
-# brew
-# ------------------------------------------------------------------------------
-if [[ $(command -v brew) ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
 
 # ------------------------------------------------------------------------------
 # asdf
@@ -160,7 +153,12 @@ ctrl+d\t\t:ターミナルを強制終了
 # ------------------------------------------------------------------------------
 # mysql-client
 # ------------------------------------------------------------------------------
-export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^mysql-client@*.*$")" -gt 0 ]; then
+    PATH="$(brew --prefix mysql-client)/bin:$PATH"
+    export PATH
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # pre-commit
@@ -174,13 +172,22 @@ fi
 # ------------------------------------------------------------------------------
 # openjdk
 # ------------------------------------------------------------------------------
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk@11/bin:$PATH"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^openjdk@*.*$")" -gt 0 ]; then
+    PATH="$(brew --prefix openjdk@11)/bin:$PATH"
+    export PATH
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # fzf
 # ------------------------------------------------------------------------------
-# shellcheck source=/dev/null
-[ -f ~/.fzf.zsh ] && . "$HOME/.fzf.zsh"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^fzf@*.*$")" -gt 0 ]; then
+    # shellcheck source=/dev/null
+    [ -f ~/.fzf.zsh ] && . "$HOME/.fzf.zsh"
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # bat
