@@ -97,6 +97,30 @@ if test (command -v shellcheck)
   end
 end
 
+alias help-me='echo "
+ctrl+a\t\t:行頭に移動
+ctrl+e\t\t:行末に移動
+ctrl+h\t\t:後方に1文字削除
+meta(esc)+b\t:一語後退
+meta(esc)+f\t:一語前進
+ctrl+u\t\t:行頭まで削除
+ctrl+l\t\t:ターミナルの内容をクリア
+ctrl+c\t\t:実行中のコマンドを終了
+ctrl+r\t\t:コマンド履歴の検索
+ctrl+insert\t:コピー
+shift+insert\t:貼り付け
+ctrl+d\t\t:ターミナルを強制終了
+"'
+
+# ------------------------------------------------------------------------------
+# mysql-client
+# ------------------------------------------------------------------------------
+if test (command -v brew)
+  if test (brew list | grep -c "^mysql-client@*.*\$") -gt 0
+    set -x PATH (brew --prefix mysql-client)/bin $PATH
+  end
+end
+
 # ------------------------------------------------------------------------------
 # pre-commit
 # ------------------------------------------------------------------------------
@@ -107,10 +131,34 @@ if test (command -v pre-commit)
 end
 
 # ------------------------------------------------------------------------------
+# openjdk
+# ------------------------------------------------------------------------------
+if test (command -v brew)
+  if test (brew list | grep -c "^openjdk@*.*\$") -gt 0
+    set -x PATH (brew --prefix openjdk@11)/bin $PATH
+  end
+end
+
+# ------------------------------------------------------------------------------
 # bat
 # ------------------------------------------------------------------------------
 if test (command -v bat)
   alias cat="bat"
+end
+
+# ------------------------------------------------------------------------------
+# VS Code
+# ------------------------------------------------------------------------------
+
+# Remote Containers >> SSH
+if string length -q -- $SSH_AUTH_SOCK
+  # Check for a currently running instance of the agent
+  set RUNNING_AGENT "`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+  if test $RUNNING_AGENT -eq 0
+    # Launch a new instance of the agent
+    ssh-agent -s &> $HOME/.ssh/ssh-agent
+  end
+  eval `cat $HOME/.ssh/ssh-agent`
 end
 
 # ------------------------------------------------------------------------------

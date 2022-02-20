@@ -43,13 +43,6 @@ export SAVEHIST=100000
 setopt extended_history
 
 # ------------------------------------------------------------------------------
-# brew
-# ------------------------------------------------------------------------------
-if [[ $(command -v brew) ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-# ------------------------------------------------------------------------------
 # asdf
 # ------------------------------------------------------------------------------
 if [[ $(command -v brew) ]]; then
@@ -160,7 +153,11 @@ ctrl+d\t\t:ターミナルを強制終了
 # ------------------------------------------------------------------------------
 # mysql-client
 # ------------------------------------------------------------------------------
-export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^mysql-client@*.*$")" -gt 0 ]; then
+    export PATH="$(brew --prefix mysql-client)/bin:$PATH"
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # pre-commit
@@ -174,13 +171,21 @@ fi
 # ------------------------------------------------------------------------------
 # openjdk
 # ------------------------------------------------------------------------------
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk@11/bin:$PATH"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^openjdk@*.*$")" -gt 0 ]; then
+    export PATH="$(brew --prefix openjdk@11)/bin:$PATH"
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # fzf
 # ------------------------------------------------------------------------------
-# shellcheck source=/dev/null
-[ -f ~/.fzf.zsh ] && . "$HOME/.fzf.zsh"
+if [[ $(command -v brew) ]]; then
+  if [ "$(brew list | grep -c "^fzf@*.*$")" -gt 0 ]; then
+    # shellcheck source=/dev/null
+    [ -f ~/.fzf.zsh ] && . "$HOME/.fzf.zsh"
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # bat
