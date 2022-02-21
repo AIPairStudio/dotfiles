@@ -4,8 +4,13 @@
 # brew
 # ------------------------------------------------------------------------------
 if [[ $(command -v brew) ]]; then
-    # shellcheck source=/dev/null
-  . "$(brew --prefix)/bin/brew shellenv"
+  if [ "$(uname)" = "Darwin" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [ "$(uname -s)" = "Linux" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  else
+    echo "Your platform ($(uname -a)) is not supported."
+  fi
 fi
 
 # ------------------------------------------------------------------------------

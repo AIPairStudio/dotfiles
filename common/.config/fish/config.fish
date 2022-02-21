@@ -3,12 +3,53 @@ function fish_greeting
 end
 
 # ------------------------------------------------------------------------------
+# brew
+# ------------------------------------------------------------------------------
+function abort
+  printf "%s\n" "\$@"
+  exit 1
+end
+
+if test (uname -s) = "Darwin"
+  set -x PLATFORM "mac"
+else if test (uname -s) = "MINGW"
+  set -x PLATFORM "windows"
+else if test (uname -s) = "Linux"
+  set -x PLATFORM "linux"
+else
+  set -x PLATFORM "Unknown OS"
+  abort "Your platform (uname -a) is not supported."
+end
+
+function is_exists
+  which "$1" >/dev/null 2>&1
+  return "\$?"
+end
+
+function is_linux
+  return test ("$PLATFORM" = "linux")
+end
+
+function is_mac
+  return test ("$PLATFORM" = "mac")
+end
+
+# ------------------------------------------------------------------------------
+# asdf
+# ------------------------------------------------------------------------------
+if test is_linux = true
+  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+else if test is_mac
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+# end
+
+# ------------------------------------------------------------------------------
 # asdf
 # ------------------------------------------------------------------------------
 if test (command -v brew)
   # see https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
   # Fish & Homebrew
-
   . ""(brew --prefix asdf)"/libexec/asdf.fish"
 end
 
@@ -151,14 +192,14 @@ end
 # ------------------------------------------------------------------------------
 
 # Remote Containers >> SSH
-if string length -q -- $SSH_AUTH_SOCK
+if test (string length -q -- $SSH_AUTH_SOCK)
   # Check for a currently running instance of the agent
-  set RUNNING_AGENT "`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-  if test $RUNNING_AGENT -eq 0
+  set RUNNING_AGENT "(ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]')"
+  if test ($RUNNING_AGENT -eq 0)
     # Launch a new instance of the agent
     ssh-agent -s &> $HOME/.ssh/ssh-agent
   end
-  eval `cat $HOME/.ssh/ssh-agent`
+  eval (cat $HOME/.ssh/ssh-agent)
 end
 
 # ------------------------------------------------------------------------------
