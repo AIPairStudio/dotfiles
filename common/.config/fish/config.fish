@@ -187,6 +187,10 @@ if test (command -v bat)
   alias cat="bat"
 end
 
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/home/tqer39/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
 # ------------------------------------------------------------------------------
 # VS Code
 # ------------------------------------------------------------------------------
@@ -208,3 +212,5 @@ end
 # see https://starship.rs/ja-jp/guide/
 # ※ 一番最後の行に設定が必要
 starship init fish | source
+
+echo "fish shell..."
