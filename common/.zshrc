@@ -54,6 +54,13 @@ if [[ $(command -v brew) ]]; then
 fi
 
 # ------------------------------------------------------------------------------
+# anyenv
+# ------------------------------------------------------------------------------
+# 挙動がおかしいときは chsh, $SHELL あたりを確認。$SHELL がちがう shell なら os reboot
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+# ------------------------------------------------------------------------------
 # shortcut
 # ------------------------------------------------------------------------------
 alias ..='cd ..'
@@ -101,6 +108,7 @@ if [[ $(command -v git) ]]; then
   alias gpl='git pull'
   alias gps='git push'
   alias gpso='git push origin'
+  alias gpso-this='git push --set-upstream origin $(git branch --contains | cut -d " " -f 2)'
   alias gstt='git status'
   alias gsts='git stash'
   alias gsw='git switch'
@@ -197,8 +205,25 @@ if [[ $(command -v bat) ]]; then
 fi
 
 # ------------------------------------------------------------------------------
+# go
+# ------------------------------------------------------------------------------
+export GOPATH="${HOME}/go"
+# export GOPATH=$HOME/go
+
+# export PATH="${GOPATH}:${PATH}"
+
+# ------------------------------------------------------------------------------
+# Rancher Desktop
+# ------------------------------------------------------------------------------
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/tqer39/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# ------------------------------------------------------------------------------
 # Starship
 # ------------------------------------------------------------------------------
 # see https://starship.rs/ja-jp/guide/
 # ※ 一番最後の行に設定が必要
 eval "$(starship init zsh)"
+
+echo "zsh..."
