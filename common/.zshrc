@@ -45,13 +45,13 @@ setopt extended_history
 # ------------------------------------------------------------------------------
 # asdf
 # ------------------------------------------------------------------------------
-if [[ $(command -v brew) ]]; then
+# if [[ $(command -v brew) ]]; then
   # see https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
   # ZSH & Homebrew
 
   # shellcheck source=/dev/null
-  . "$(brew --prefix asdf)/libexec/asdf.sh"
-fi
+  # . "$(brew --prefix asdf)/libexec/asdf.sh"
+# fi
 
 # ------------------------------------------------------------------------------
 # anyenv
@@ -113,7 +113,7 @@ if [[ $(command -v git) ]]; then
   alias gsts='git stash'
   alias gsw='git switch'
   alias gswc='git switch -c'
-  alias gl='git log --oneline'
+  alias gl='git log --oneline --graph --decorate'
   alias gbm='git branch --merged'
   alias gbm-all='git branch --merged|egrep -v "\*|develop|main"|xargs git branch' # -d で削除, -D で完全削除
 fi
@@ -219,6 +219,11 @@ export GOPATH="${HOME}/go"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# buildx
+export PATH="~/.docker/cli-plugins:$PATH"
+
+echo "zsh..."
 
 # ------------------------------------------------------------------------------
 # Starship
