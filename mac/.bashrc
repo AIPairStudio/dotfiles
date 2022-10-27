@@ -155,3 +155,8 @@ fi
 # see https://starship.rs/ja-jp/guide/
 # ※ 一番最後の行に設定が必要
 # eval "$(starship init bash)"
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/takeru_ooyama/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

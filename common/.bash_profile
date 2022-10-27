@@ -80,3 +80,7 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   fi
   eval "cat $HOME/.ssh/ssh-agent"
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
