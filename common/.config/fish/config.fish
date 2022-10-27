@@ -187,9 +187,6 @@ if test (command -v bat)
   alias cat="bat"
 end
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/home/tqer39/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # ------------------------------------------------------------------------------
 # VS Code
