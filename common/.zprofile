@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
 #!/bin/bash
 
 # ------------------------------------------------------------------------------
@@ -27,3 +29,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   fi
   eval "cat $HOME/.ssh/ssh-agent"
 fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"

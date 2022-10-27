@@ -1,5 +1,5 @@
-#!/bin/bash
-
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # ------------------------------------------------------------------------------
 # zinit
 # ------------------------------------------------------------------------------
@@ -227,4 +227,5 @@ export PATH="${HOME}/.rd/bin:$PATH"
 # ※ 一番最後の行に設定が必要
 eval "$(starship init zsh)"
 
-echo "zsh..."
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
