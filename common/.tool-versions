@@ -1,4 +1,4 @@
-nodejs 18.15.0
+nodejs 18.16.0
 terraform 1.4.5
 python 3.11.3
 tflint 0.32.1
