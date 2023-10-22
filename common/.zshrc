@@ -70,6 +70,7 @@ alias .....='cd ../../../..'
 alias dl='cd ~/Downloads'
 alias d='cd ~/Desktop'
 alias work='cd ~/workspace'
+alias tqer39='mkdir -p ~/workspace/tqer39 && cd ~/workspace/tqer39'
 
 # ------------------------------------------------------------------------------
 # exa
