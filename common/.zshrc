@@ -30,8 +30,8 @@ zinit light-mode for \
 
 # zinit: plugins
 # 入力補完
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -70,6 +70,7 @@ alias .....='cd ../../../..'
 alias dl='cd ~/Downloads'
 alias d='cd ~/Desktop'
 alias work='cd ~/workspace'
+alias tqer39='mkdir -p ~/workspace/tqer39 && cd ~/workspace/tqer39'
 
 # ------------------------------------------------------------------------------
 # exa
