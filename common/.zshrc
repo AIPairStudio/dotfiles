@@ -30,8 +30,8 @@ zinit light-mode for \
 
 # zinit: plugins
 # 入力補完
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 
 # シンタックスハイライト
 zinit light zdharma-continuum/fast-syntax-highlighting
