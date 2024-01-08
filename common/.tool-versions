@@ -1,5 +1,5 @@
 nodejs 20.10.0
 terraform 1.6.6
 python 3.12.1
-tflint 0.50.0
+tflint 0.50.1
 golang 1.21.5
