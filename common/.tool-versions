@@ -1,5 +1,5 @@
 nodejs 20.15.1
-terraform 1.9.1
+terraform 1.9.2
 python 3.12.4
 tflint 0.52.0
 golang 1.22.5
