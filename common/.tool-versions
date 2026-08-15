@@ -2,4 +2,4 @@ nodejs 24.19.0
 terraform 1.15.8
 python 3.14.7
 tflint 0.64.0
-golang 1.26.5
+golang 1.26.6
